@@ -10,7 +10,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const code = urlParams.get('c');
             if (code) {
-                window.location.href = `sms://888222/&body=${code}`;
+                window.location.href = `mms://888222/&body=${code}`;
             } else {
                 document.body.innerHTML = 'Invalid code. Please try again.';
             }
