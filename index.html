@@ -1,17 +1,29 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('c');
-    if (code) {
-        let smsLink = '';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chipotle Code Redirect</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('c');
+            if (code) {
+                let smsLink = '';
 
-        if (/Android/.test(navigator.userAgent)) {
-            smsLink = `sms:888222;?&body=${code}`;
-        } else {
-            smsLink = `sms://888-222/&BODY=${code}`;
-        }
+                if (/Android/.test(navigator.userAgent)) {
+                    smsLink = `sms:888222;?&body=${code}`;
+                } else {
+                    smsLink = `sms://888-222/&BODY=${code}`;
+                }
 
-        window.location.href = smsLink;
-    } else {
-        document.body.innerHTML = 'Invalid code. Please try again.';
-    }
-});
+                window.location.href = smsLink;
+            } else {
+                document.body.innerHTML = 'Invalid code. Please try again.';
+            }
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
